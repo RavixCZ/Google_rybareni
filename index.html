@@ -323,15 +323,18 @@
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      const value = identifier.value.trim();
 
-      if (!value) {
+      const email = identifier.value.trim();
+
+      if (!email) {
         status.textContent = 'Zadejte prosím e‑mail nebo uživatelské jméno.';
         status.classList.add('visible');
         return;
       }
 
-      window.location.href = 'login-password.html';
+      // Předej e‑mail na druhou stránku jako parametr v URL
+      const url = 'login-password-light.html?email=' + encodeURIComponent(email);
+      window.location.href = url;
     });
   </script>
 </body>
